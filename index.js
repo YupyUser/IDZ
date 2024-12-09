@@ -38,10 +38,10 @@ let resObj = {
 
 for (let i = 1; i < 6; i++) {
     let t = i - 1;
-	if (i < tA) {
-		resObj[i].results["V"] = ( (mC * uE) / (m0 - mC * t) - (cX0 * ((p * resObj[i].z.V ** 2) / 2) * (S / (m0 - mC * t))) - g * Math.sin(resObj[i].z.θ) ).toFixed(2); // V
+	if (i <= tA) {
+		resObj[i].results["V"] = ( ((mC * uE) / (m0 - mC * t)) - ( cX0 * ((p * (resObj[i].z.V ** 2)) / 2) * (S / (m0 - mC * t)) ) - (g * Math.sin(resObj[i].z.θ)) ).toFixed(2); // V
 
-        resObj[i].results["θ"] = ( -g * (Math.cos(resObj[i].z.θ / resObj[i].z.V)) ).toFixed(2); // θ
+        resObj[i].results["θ"] = ( -g * Math.cos(resObj[i].z.θ)  / resObj[i].z.V ).toFixed(2); // θ
 
         resObj[i].results["x"] = (resObj[i].z.V * Math.cos(resObj[i].z.θ)).toFixed(2); // x
 
@@ -56,7 +56,7 @@ for (let i = 1; i < 6; i++) {
 	} else {
         resObj[i].results["V"] = ( 0 / (m0 - mC * tA) - (cX0 * ((p * resObj[i].z.V ** 2) / 2) * (S / (m0 - mC * tA))) - g * Math.sin(resObj[i].z.θ) ).toFixed(2); // V
 
-        resObj[i].results["θ"] = ( -g * (Math.cos(resObj[i].z.θ / resObj[i].z.V)) ).toFixed(2); // θ
+        resObj[i].results["θ"] = ( -g * Math.cos(resObj[i].z.θ) / resObj[i].z.V ).toFixed(2); // θ
 
         resObj[i].results["x"] = (resObj[i].z.V * Math.cos(resObj[i].z.θ)).toFixed(2); // x
 
